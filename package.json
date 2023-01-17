@@ -1,0 +1,23 @@
+{
+  "name": "pipedrive.ts",
+  "version": "0.0.1-alpha",
+  "description": "A Typescript Pipedrive package.",
+  "main": "src/main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YarkinGulacti/pipedrive.ts.git"
+  },
+  "keywords": [
+    "pipedrive",
+    "typescript"
+  ],
+  "author": "Yarkın Gülaçtı",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YarkinGulacti/pipedrive.ts/issues"
+  },
+  "homepage": "https://github.com/YarkinGulacti/pipedrive.ts#readme"
+}
