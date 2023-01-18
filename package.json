@@ -2,7 +2,7 @@
     "name": "pipedrive.ts",
     "version": "0.0.1-alpha",
     "description": "A Typescript Pipedrive package.",
-    "main": "./src/index.ts",
+    "main": "src/index.js",
     "scripts": {
         "test": "jest"
     },
