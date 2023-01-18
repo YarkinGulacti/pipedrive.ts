@@ -1,9 +1,10 @@
 {
     "name": "pipedrive.ts",
-    "version": "0.0.3-alpha",
+    "version": "0.0.4-alpha",
     "description": "A Typescript Pipedrive package.",
-    "main": "src/index.js",
+    "main": "build/index.js",
     "scripts": {
+        "build": "tsc",
         "test": "jest"
     },
     "repository": {

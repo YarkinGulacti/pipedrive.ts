@@ -1,5 +1,5 @@
 import { GetAllDealsParams } from "../lib/types/request/params/GetAllDeals.params";
-import { PipedriveService } from "./PipedriveService";
+import { PipedriveService } from "../lib/PipedriveService";
 
 export class PipedriveClient {
     private baseUrl: string = "https://api.pipedrive.com/v1";

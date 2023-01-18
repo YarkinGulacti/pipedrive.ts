@@ -1,11 +1,19 @@
 {
     "include": ["src/**/*.ts"],
-    "exclude": ["node_modules/**/*.*"],
+    "exclude": [
+        "node_modules/**/*.*",
+        "src/lib/**/*.*",
+        "src/**/*spec*",
+        "src/**/*test*"
+    ],
     "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
-      "typeRoots": ["./node_modules/@types"],
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": true,
+        "outDir": "./build",
+        "strict": true,
+        "typeRoots": ["./node_modules/@types"],
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true
     }
-  }
+}

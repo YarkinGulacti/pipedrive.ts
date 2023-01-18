@@ -1,7 +1,7 @@
 import axios from "axios";
-import { PipedriveEndpoints } from "../lib/Endpoints";
-import { GetAllDealsParams } from "../lib/types/request/params/GetAllDeals.params";
-import { GetAllDealsResponse } from "../lib/types/response/GetAllDeals.response";
+import { PipedriveEndpoints } from "./Endpoints";
+import { GetAllDealsParams } from "./types/request/params/GetAllDeals.params";
+import { GetAllDealsResponse } from "./types/response/GetAllDeals.response";
 
 export class PipedriveService {
     constructor(private baseUrl: string) {
@@ -10,11 +10,11 @@ export class PipedriveService {
         }
     }
 
-    private buildQueryParameters(params: object): string {
+    private buildQueryParameters(params: any): string {
         let queryParameters = [];
 
         for (const key of Object.keys(params)) {
-            queryParameters.push(`${key}=${params[key]}`);
+            queryParameters.push(`${key}=${params[key] as string}`);
         }
 
         return `?${queryParameters.join("&")}`;
