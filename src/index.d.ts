@@ -1,7 +1,5 @@
 import { PipedriveClient } from "./core/PipedriveClient";
-import { Deal } from "./lib/types/interface/Deal.interface";
 
-declare module "pipedrive.ts" {
+declare namespace PipedriveClient {
     export { PipedriveClient };
-    export { Deal };
 }
