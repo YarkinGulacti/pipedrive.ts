@@ -1,10 +1,16 @@
 {
     "name": "pipedrive.ts",
-    "version": "0.0.6-alpha",
+    "version": "0.0.18-alpha",
     "description": "A Typescript Pipedrive package.",
     "main": "build/index.js",
+    "types": "build/index.d.ts",
+    "files": [
+        "build"
+    ],
     "scripts": {
-        "build": "tsc",
+        "prepublishOnly": "npm run build:tsc",
+        "build:tsc": "tsc",
+        "build:webpack": "webpack --mode production",
         "test": "jest"
     },
     "repository": {
@@ -35,5 +41,12 @@
     },
     "dependencies": {
         "axios": "^1.2.3"
+    },
+    "exports": {
+        ".": {
+            "types": "./build/index.d.ts",
+            "default": "./build/index.js"
+        },
+        "./package.json": "./package.json"
     }
 }
