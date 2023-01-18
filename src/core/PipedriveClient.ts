@@ -1,15 +1,22 @@
+import { GetAllDealsParams } from "../lib/types/request/params/GetAllDeals.params";
+import { PipedriveService } from "./PipedriveService";
+
 export class PipedriveClient {
-    private _apiToken: string;
+    private baseUrl: string = "https://api.pipedrive.com/v1";
+    private PipedriveService: PipedriveService;
 
-    public get apiToken(): string {
-        return this._apiToken;
+    constructor(private apiToken: string) {
+        this.PipedriveService = new PipedriveService(this.baseUrl);
     }
 
-    public set apiToken(value: string) {
-        this._apiToken = value;
-    }
+    public async GetAllDeals(params?: GetAllDealsParams) {
+        try {
+            const paramsObj = Object.assign({}, params);
+            paramsObj.api_token = this.apiToken;
 
-    constructor(apiToken?: string) {
-        if (apiToken) this.apiToken = apiToken;
+            return await this.PipedriveService.GetAllDeals(paramsObj);
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
