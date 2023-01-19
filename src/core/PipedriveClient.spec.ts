@@ -38,4 +38,15 @@ describe("Pipedrive Client tests.", () => {
         expect(res.data?.shift()?.id).toBeDefined();
         expect(res.additional_data?.pagination?.start).toBeDefined();
     });
+
+    test("Pipedrive Client get all stages test.", async () => {
+        const client = new PipedriveClient(
+            process.env.PIPEDRIVE_API_KEY as string
+        );
+        const res = await client.GetAllStages();
+
+        expect(res).toBeDefined();
+        expect(res?.success).toBe(true);
+        expect(res.data?.shift()?.pipeline_name).toBeDefined();
+    });
 });

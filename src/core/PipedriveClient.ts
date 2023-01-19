@@ -2,6 +2,7 @@ import { PipedriveService } from "../lib/PipedriveService";
 import { GetAllDealsParams } from "../lib/types/request/params/GetAllDeals.params";
 import { GetAllDealFieldsParams } from "../lib/types/request/params/GetAllDealFields.params";
 import { GetAllOrganizationsParams } from "../lib/types/request/params/GetAllOrganizations.params";
+import { GetAllStagesParams } from "../lib/types/request/params/GetAllStages.params";
 
 export class PipedriveClient {
     private baseUrl: string = "https://api.pipedrive.com/v1";
@@ -39,6 +40,17 @@ export class PipedriveClient {
             paramsObj.api_token = this.apiToken;
 
             return await this.PipedriveService.GetAllOrganizations(paramsObj);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    public async GetAllStages(params?: GetAllStagesParams) {
+        try {
+            const paramsObj = Object.assign({}, params);
+            paramsObj.api_token = this.apiToken;
+
+            return await this.PipedriveService.GetAllStages(paramsObj);
         } catch (error) {
             throw error;
         }
