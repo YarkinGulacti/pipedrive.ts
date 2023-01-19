@@ -26,7 +26,7 @@ export class PipedriveClient {
             const paramsObj = Object.assign({}, params);
             paramsObj.api_token = this.apiToken;
 
-            return await this.PipedriveService.GetAllDeals(paramsObj);
+            return await this.PipedriveService.GetAllDealFields(paramsObj);
         } catch (error) {
             console.log(error);
         }
