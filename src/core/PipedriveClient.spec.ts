@@ -8,9 +8,22 @@ describe("Pipedrive Client tests.", () => {
     });
 
     test("Pipedrive Client get all deals test.", async () => {
-        const client = new PipedriveClient(process.env.PIPEDRIVE_API_KEY);
+        const client = new PipedriveClient(
+            process.env.PIPEDRIVE_API_KEY as string
+        );
         const res = await client.GetAllDeals();
 
-        expect(res.data).toBeDefined();
+        expect(res).toBeDefined();
+        expect(res?.success).toBe(true);
+    });
+
+    test("Pipedrive Client get all deal fields test.", async () => {
+        const client = new PipedriveClient(
+            process.env.PIPEDRIVE_API_KEY as string
+        );
+        const res = await client.GetAllDealFields();
+
+        expect(res).toBeDefined();
+        expect(res?.success).toBe(true);
     });
 });

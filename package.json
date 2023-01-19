@@ -1,6 +1,6 @@
 {
     "name": "pipedrive.ts",
-    "version": "0.0.19-alpha",
+    "version": "0.0.20-alpha",
     "description": "A Typescript Pipedrive package.",
     "main": "build/index.js",
     "types": "build/index.d.ts",
@@ -8,9 +8,8 @@
         "build"
     ],
     "scripts": {
-        "prepublishOnly": "npm run build:tsc",
-        "build:tsc": "tsc",
-        "build:webpack": "webpack --mode production",
+        "prepublishOnly": "npm run test && npm run build",
+        "build": "tsc",
         "test": "jest"
     },
     "repository": {

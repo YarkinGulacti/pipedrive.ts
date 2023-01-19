@@ -2,6 +2,8 @@ import axios from "axios";
 import { PipedriveEndpoints } from "./Endpoints";
 import { GetAllDealsParams } from "./types/request/params/GetAllDeals.params";
 import { GetAllDealsResponse } from "./types/response/GetAllDeals.response";
+import { GetAllDealFieldsResponse } from "./types/response/GetAllDealFields.response";
+import { GetAllDealFieldsParams } from "./types/request/params/GetAllDealFields.params";
 
 export class PipedriveService {
     constructor(private baseUrl: string) {
@@ -28,6 +30,20 @@ export class PipedriveService {
 
             const response = await axios.get(url);
             return response.data as GetAllDealsResponse;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    public async GetAllDealFields(params?: GetAllDealFieldsParams) {
+        try {
+            const url = `${this.baseUrl}${
+                PipedriveEndpoints.GetAllDealFields
+            }${this.buildQueryParameters(params)}`;
+
+            const response = await axios.get(url);
+
+            return response.data as GetAllDealFieldsResponse;
         } catch (error) {
             throw error;
         }
