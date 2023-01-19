@@ -35,5 +35,7 @@ describe("Pipedrive Client tests.", () => {
 
         expect(res).toBeDefined();
         expect(res?.success).toBe(true);
+        expect(res.data?.shift()?.id).toBeDefined();
+        expect(res.additional_data?.pagination?.start).toBeDefined();
     });
 });
