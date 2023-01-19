@@ -4,6 +4,7 @@ import { GetAllDealsParams } from "./types/request/params/GetAllDeals.params";
 import { GetAllDealsResponse } from "./types/response/GetAllDeals.response";
 import { GetAllDealFieldsResponse } from "./types/response/GetAllDealFields.response";
 import { GetAllDealFieldsParams } from "./types/request/params/GetAllDealFields.params";
+import { GetAllOrganizationsParams } from "./types/request/params/GetAllOrganizations.params";
 
 export class PipedriveService {
     constructor(private baseUrl: string) {
@@ -44,6 +45,20 @@ export class PipedriveService {
             const response = await axios.get(url);
 
             return response.data as GetAllDealFieldsResponse;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    public async GetAllOrganizations(params?: GetAllOrganizationsParams) {
+        try {
+            const url = `${this.baseUrl}${
+                PipedriveEndpoints.GetAllOrganizations
+            }${this.buildQueryParameters(params)}`;
+
+            const response = await axios.get(url);
+
+            return response.data;
         } catch (error) {
             throw error;
         }

@@ -26,4 +26,14 @@ describe("Pipedrive Client tests.", () => {
         expect(res).toBeDefined();
         expect(res?.success).toBe(true);
     });
+
+    test("Pipedrive Client get all organizations test.", async () => {
+        const client = new PipedriveClient(
+            process.env.PIPEDRIVE_API_KEY as string
+        );
+        const res = await client.GetAllOrganizations();
+
+        expect(res).toBeDefined();
+        expect(res?.success).toBe(true);
+    });
 });
