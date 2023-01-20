@@ -12,6 +12,8 @@ import { GetAllOrganizationFieldsParams } from "./types/request/params/GetAllOrg
 import { GetAllOrganizationFieldsResponse } from "./types/response/GetAllOrganizationFields.response";
 import { GetAllNotesParams } from "./types/request/params/GetAllNotes.params";
 import { GetAllNotesResponse } from "./types/response/GetAllNotes.response";
+import { GetAllFilesParams } from "./types/request/params/GetAllFiles.params";
+import { GetAllFilesResponse } from "./types/response/GetAllFiles.response";
 
 export class PipedriveService {
     constructor(private baseUrl: string) {
@@ -110,6 +112,20 @@ export class PipedriveService {
             const response = await axios.get(url);
 
             return response.data as GetAllNotesResponse;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    public async GetAllFiles(params?: GetAllFilesParams) {
+        try {
+            const url = `${this.baseUrl}${
+                PipedriveEndpoints.GetAllFiles
+            }${this.buildQueryParameters(params)}`;
+
+            const response = await axios.get(url);
+
+            return response.data as GetAllFilesResponse;
         } catch (error) {
             throw error;
         }

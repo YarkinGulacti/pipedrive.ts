@@ -71,4 +71,17 @@ describe("Pipedrive Client tests.", () => {
         expect(res?.success).toBe(true);
         expect(res.data?.shift()?.deal_id).toBeDefined();
     });
+
+    test("Pipedrive Client get all files test.", async () => {
+        const client = new PipedriveClient(
+            process.env.PIPEDRIVE_API_KEY as string
+        );
+        const res = await client.GetAllFiles();
+
+        expect(res).toBeDefined();
+        expect(res?.success).toBe(true);
+        if (res.data && res.data?.length > 0) {
+            expect(res.data?.shift()?.id).toBeDefined();
+        }
+    });
 });
