@@ -63,7 +63,12 @@ export interface GetAllOrganizationFieldsResponse {
         /** @description Whether or not the field is mandatory */
         mandatory_flag?: boolean;
         /** @description The options of the field. When there are no options, `null` is returned. */
-        options?: Record<string, never>[] | null;
+        options?:
+            | {
+                  id?: number;
+                  label?: string;
+              }[]
+            | null;
         /** @description The deleted options of the field. Only present when there is at least 1 deleted option. */
         options_deleted?: Record<string, never>[];
         /** @description Whether or not the field is a subfield of another field. Only present if field is subfield. */
