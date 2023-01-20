@@ -49,4 +49,15 @@ describe("Pipedrive Client tests.", () => {
         expect(res?.success).toBe(true);
         expect(res.data?.shift()?.pipeline_name).toBeDefined();
     });
+
+    test("Pipedrive Client get all organization fields test.", async () => {
+        const client = new PipedriveClient(
+            process.env.PIPEDRIVE_API_KEY as string
+        );
+        const res = await client.GetAllOrganizationFields();
+
+        expect(res).toBeDefined();
+        expect(res?.success).toBe(true);
+        expect(res.data?.shift()?.field_type).toBeDefined();
+    });
 });

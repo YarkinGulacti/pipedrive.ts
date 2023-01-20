@@ -8,6 +8,8 @@ import { GetAllOrganizationsParams } from "./types/request/params/GetAllOrganiza
 import { GetAllOrganizationsResponse } from "./types/response/GetAllOrganizations.response";
 import { GetAllStagesParams } from "./types/request/params/GetAllStages.params";
 import { GetAllStagesResponse } from "./types/response/GetAllStages.response";
+import { GetAllOrganizationFieldsParams } from "./types/request/params/GetAllOrganizationFields.params";
+import { GetAllOrganizationFieldsResponse } from "./types/response/GetAllOrganizationFields.response";
 
 export class PipedriveService {
     constructor(private baseUrl: string) {
@@ -76,6 +78,22 @@ export class PipedriveService {
             const response = await axios.get(url);
 
             return response.data as GetAllStagesResponse;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    public async GetAllOrganizationFields(
+        params?: GetAllOrganizationFieldsParams
+    ) {
+        try {
+            const url = `${this.baseUrl}${
+                PipedriveEndpoints.GetAllOrganizationFields
+            }${this.buildQueryParameters(params)}`;
+
+            const response = await axios.get(url);
+
+            return response.data as GetAllOrganizationFieldsResponse;
         } catch (error) {
             throw error;
         }
