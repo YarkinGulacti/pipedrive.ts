@@ -107,4 +107,15 @@ export class PipedriveClient {
             throw error;
         }
     }
+
+    public async GetAllUsers(params?: { api_token: string }) {
+        try {
+            const paramsObj = Object.assign({}, params);
+            paramsObj.api_token = this.apiToken;
+
+            return await this.PipedriveService.GetAllUsers(paramsObj);
+        } catch (error) {
+            throw error;
+        }
+    }
 }

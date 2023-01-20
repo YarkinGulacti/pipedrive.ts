@@ -97,4 +97,17 @@ describe("Pipedrive Client tests.", () => {
             expect(res.data?.shift()?.cc_email).toBeDefined();
         }
     });
+
+    test("Pipedrive Client get all users test.", async () => {
+        const client = new PipedriveClient(
+            process.env.PIPEDRIVE_API_KEY as string
+        );
+        const res = await client.GetAllUsers();
+
+        expect(res).toBeDefined();
+        expect(res?.success).toBe(true);
+        if (res.data && res.data?.length > 0) {
+            expect(res.data?.shift()?.email).toBeDefined();
+        }
+    });
 });

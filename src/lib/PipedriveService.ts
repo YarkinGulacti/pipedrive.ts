@@ -16,6 +16,7 @@ import { GetAllFilesParams } from "./types/request/params/GetAllFiles.params";
 import { GetAllFilesResponse } from "./types/response/GetAllFiles.response";
 import { GetAllPersonsParams } from "./types/request/params/GetAllPersons.params";
 import { GetAllPersonsResponse } from "./types/response/GetAllPersons.response";
+import { GetAllUsersResponse } from "./types/response/GetAllUsers.response";
 
 export class PipedriveService {
     constructor(private baseUrl: string) {
@@ -34,14 +35,25 @@ export class PipedriveService {
         return `?${queryParameters.join("&")}`;
     }
 
+    private async buildRequest<T>(
+        baseUrl: string,
+        endpoint: PipedriveEndpoints,
+        params: any
+    ) {
+        const query = this.buildQueryParameters(params);
+        const url = `${baseUrl}${endpoint}${query}`;
+        const response = await axios.get(url);
+
+        return response.data as T;
+    }
+
     public async GetAllDeals(params?: GetAllDealsParams) {
         try {
-            const url = `${this.baseUrl}${
-                PipedriveEndpoints.GetAllDeals
-            }${this.buildQueryParameters(params)}`;
-
-            const response = await axios.get(url);
-            return response.data as GetAllDealsResponse;
+            return await this.buildRequest<GetAllDealsResponse>(
+                this.baseUrl,
+                PipedriveEndpoints.GetAllDeals,
+                params
+            );
         } catch (error) {
             throw error;
         }
@@ -49,13 +61,11 @@ export class PipedriveService {
 
     public async GetAllDealFields(params?: GetAllDealFieldsParams) {
         try {
-            const url = `${this.baseUrl}${
-                PipedriveEndpoints.GetAllDealFields
-            }${this.buildQueryParameters(params)}`;
-
-            const response = await axios.get(url);
-
-            return response.data as GetAllDealFieldsResponse;
+            return await this.buildRequest<GetAllDealFieldsResponse>(
+                this.baseUrl,
+                PipedriveEndpoints.GetAllDealFields,
+                params
+            );
         } catch (error) {
             throw error;
         }
@@ -63,13 +73,11 @@ export class PipedriveService {
 
     public async GetAllOrganizations(params?: GetAllOrganizationsParams) {
         try {
-            const url = `${this.baseUrl}${
-                PipedriveEndpoints.GetAllOrganizations
-            }${this.buildQueryParameters(params)}`;
-
-            const response = await axios.get(url);
-
-            return response.data as GetAllOrganizationsResponse;
+            return await this.buildRequest<GetAllOrganizationsResponse>(
+                this.baseUrl,
+                PipedriveEndpoints.GetAllOrganizations,
+                params
+            );
         } catch (error) {
             throw error;
         }
@@ -77,13 +85,11 @@ export class PipedriveService {
 
     public async GetAllStages(params?: GetAllStagesParams) {
         try {
-            const url = `${this.baseUrl}${
-                PipedriveEndpoints.GetAllStages
-            }${this.buildQueryParameters(params)}`;
-
-            const response = await axios.get(url);
-
-            return response.data as GetAllStagesResponse;
+            return await this.buildRequest<GetAllStagesResponse>(
+                this.baseUrl,
+                PipedriveEndpoints.GetAllStages,
+                params
+            );
         } catch (error) {
             throw error;
         }
@@ -93,13 +99,11 @@ export class PipedriveService {
         params?: GetAllOrganizationFieldsParams
     ) {
         try {
-            const url = `${this.baseUrl}${
-                PipedriveEndpoints.GetAllOrganizationFields
-            }${this.buildQueryParameters(params)}`;
-
-            const response = await axios.get(url);
-
-            return response.data as GetAllOrganizationFieldsResponse;
+            return await this.buildRequest<GetAllOrganizationFieldsResponse>(
+                this.baseUrl,
+                PipedriveEndpoints.GetAllOrganizationFields,
+                params
+            );
         } catch (error) {
             throw error;
         }
@@ -107,13 +111,11 @@ export class PipedriveService {
 
     public async GetAllNotes(params?: GetAllNotesParams) {
         try {
-            const url = `${this.baseUrl}${
-                PipedriveEndpoints.GetAllNotes
-            }${this.buildQueryParameters(params)}`;
-
-            const response = await axios.get(url);
-
-            return response.data as GetAllNotesResponse;
+            return await this.buildRequest<GetAllNotesResponse>(
+                this.baseUrl,
+                PipedriveEndpoints.GetAllNotes,
+                params
+            );
         } catch (error) {
             throw error;
         }
@@ -121,13 +123,11 @@ export class PipedriveService {
 
     public async GetAllFiles(params?: GetAllFilesParams) {
         try {
-            const url = `${this.baseUrl}${
-                PipedriveEndpoints.GetAllFiles
-            }${this.buildQueryParameters(params)}`;
-
-            const response = await axios.get(url);
-
-            return response.data as GetAllFilesResponse;
+            return await this.buildRequest<GetAllFilesResponse>(
+                this.baseUrl,
+                PipedriveEndpoints.GetAllFiles,
+                params
+            );
         } catch (error) {
             throw error;
         }
@@ -135,13 +135,23 @@ export class PipedriveService {
 
     public async GetAllPersons(params?: GetAllPersonsParams) {
         try {
-            const url = `${this.baseUrl}${
-                PipedriveEndpoints.GetAllPersons
-            }${this.buildQueryParameters(params)}`;
+            return await this.buildRequest<GetAllPersonsResponse>(
+                this.baseUrl,
+                PipedriveEndpoints.GetAllPersons,
+                params
+            );
+        } catch (error) {
+            throw error;
+        }
+    }
 
-            const response = await axios.get(url);
-
-            return response.data as GetAllPersonsResponse;
+    public async GetAllUsers(params?: { api_token: string }) {
+        try {
+            return await this.buildRequest<GetAllUsersResponse>(
+                this.baseUrl,
+                PipedriveEndpoints.GetAllUsers,
+                params
+            );
         } catch (error) {
             throw error;
         }
