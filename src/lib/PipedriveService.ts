@@ -14,6 +14,8 @@ import { GetAllNotesParams } from "./types/request/params/GetAllNotes.params";
 import { GetAllNotesResponse } from "./types/response/GetAllNotes.response";
 import { GetAllFilesParams } from "./types/request/params/GetAllFiles.params";
 import { GetAllFilesResponse } from "./types/response/GetAllFiles.response";
+import { GetAllPersonsParams } from "./types/request/params/GetAllPersons.params";
+import { GetAllPersonsResponse } from "./types/response/GetAllPersons.response";
 
 export class PipedriveService {
     constructor(private baseUrl: string) {
@@ -126,6 +128,20 @@ export class PipedriveService {
             const response = await axios.get(url);
 
             return response.data as GetAllFilesResponse;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    public async GetAllPersons(params?: GetAllPersonsParams) {
+        try {
+            const url = `${this.baseUrl}${
+                PipedriveEndpoints.GetAllPersons
+            }${this.buildQueryParameters(params)}`;
+
+            const response = await axios.get(url);
+
+            return response.data as GetAllPersonsResponse;
         } catch (error) {
             throw error;
         }
