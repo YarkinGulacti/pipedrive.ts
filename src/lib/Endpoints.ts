@@ -4,4 +4,5 @@ export enum PipedriveEndpoints {
     GetAllOrganizations = "/organizations",
     GetAllStages = "/stages",
     GetAllOrganizationFields = "/organizationFields",
+    GetAllNotes = "/notes",
 }

@@ -60,4 +60,15 @@ describe("Pipedrive Client tests.", () => {
         expect(res?.success).toBe(true);
         expect(res.data).toBeDefined();
     });
+
+    test("Pipedrive Client get all notes test.", async () => {
+        const client = new PipedriveClient(
+            process.env.PIPEDRIVE_API_KEY as string
+        );
+        const res = await client.GetAllNotes();
+
+        expect(res).toBeDefined();
+        expect(res?.success).toBe(true);
+        expect(res.data?.shift()?.deal_id).toBeDefined();
+    });
 });
