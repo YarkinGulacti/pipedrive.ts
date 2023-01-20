@@ -1,3 +1,5 @@
+import { FieldType } from "../enum/FieldType.enum";
+
 export interface GetAllOrganizationFieldsResponse {
     /** @description If the response is successful or not */
     success?: boolean;
@@ -10,24 +12,7 @@ export interface GetAllOrganizationFieldsResponse {
         name?: string;
         /** @description The order number of the field */
         order_nr?: number;
-        field_type?:
-            | "address"
-            | "date"
-            | "daterange"
-            | "double"
-            | "enum"
-            | "monetary"
-            | "org"
-            | "people"
-            | "phone"
-            | "set"
-            | "text"
-            | "time"
-            | "timerange"
-            | "user"
-            | "varchar"
-            | "varchar_auto"
-            | "visible_to";
+        field_type?: FieldType;
         /**
          * Format: datetime
          * @description The creation time of the field
