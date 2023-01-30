@@ -10,5 +10,4 @@ export interface GetAllDealsParams {
     limit?: number;
     sort?: string;
     owned_by_you?: 0 | 1;
-    api_token: string;
 }

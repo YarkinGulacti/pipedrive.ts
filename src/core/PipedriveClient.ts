@@ -18,10 +18,7 @@ export class PipedriveClient {
 
     public async GetAllDeals(params?: GetAllDealsParams) {
         try {
-            const paramsObj = Object.assign({}, params);
-            paramsObj.api_token = this.apiToken;
-
-            return await this.PipedriveService.GetAllDeals(paramsObj);
+            return await this.PipedriveService.GetAllDeals({ ...params, api_token: this.apiToken });
         } catch (error) {
             throw error;
         }
@@ -29,10 +26,7 @@ export class PipedriveClient {
 
     public async GetAllDealFields(params?: GetAllDealFieldsParams) {
         try {
-            const paramsObj = Object.assign({}, params);
-            paramsObj.api_token = this.apiToken;
-
-            return await this.PipedriveService.GetAllDealFields(paramsObj);
+            return await this.PipedriveService.GetAllDealFields({ ...params, api_token: this.apiToken });
         } catch (error) {
             throw error;
         }
@@ -40,10 +34,7 @@ export class PipedriveClient {
 
     public async GetAllOrganizations(params?: GetAllOrganizationsParams) {
         try {
-            const paramsObj = Object.assign({}, params);
-            paramsObj.api_token = this.apiToken;
-
-            return await this.PipedriveService.GetAllOrganizations(paramsObj);
+            return await this.PipedriveService.GetAllOrganizations({ ...params, api_token: this.apiToken });
         } catch (error) {
             throw error;
         }
@@ -51,25 +42,15 @@ export class PipedriveClient {
 
     public async GetAllStages(params?: GetAllStagesParams) {
         try {
-            const paramsObj = Object.assign({}, params);
-            paramsObj.api_token = this.apiToken;
-
-            return await this.PipedriveService.GetAllStages(paramsObj);
+            return await this.PipedriveService.GetAllStages({ ...params, api_token: this.apiToken });
         } catch (error) {
             throw error;
         }
     }
 
-    public async GetAllOrganizationFields(
-        params?: GetAllOrganizationFieldsParams
-    ) {
+    public async GetAllOrganizationFields(params?: GetAllOrganizationFieldsParams) {
         try {
-            const paramsObj = Object.assign({}, params);
-            paramsObj.api_token = this.apiToken;
-
-            return await this.PipedriveService.GetAllOrganizationFields(
-                paramsObj
-            );
+            return await this.PipedriveService.GetAllOrganizationFields({ ...params, api_token: this.apiToken });
         } catch (error) {
             throw error;
         }
@@ -77,10 +58,7 @@ export class PipedriveClient {
 
     public async GetAllNotes(params?: GetAllNotesParams) {
         try {
-            const paramsObj = Object.assign({}, params);
-            paramsObj.api_token = this.apiToken;
-
-            return await this.PipedriveService.GetAllNotes(paramsObj);
+            return await this.PipedriveService.GetAllNotes({ ...params, api_token: this.apiToken });
         } catch (error) {
             throw error;
         }
@@ -88,10 +66,7 @@ export class PipedriveClient {
 
     public async GetAllFiles(params?: GetAllFilesParams) {
         try {
-            const paramsObj = Object.assign({}, params);
-            paramsObj.api_token = this.apiToken;
-
-            return await this.PipedriveService.GetAllFiles(paramsObj);
+            return await this.PipedriveService.GetAllFiles({ ...params, api_token: this.apiToken });
         } catch (error) {
             throw error;
         }
@@ -99,21 +74,15 @@ export class PipedriveClient {
 
     public async GetAllPersons(params?: GetAllPersonsParams) {
         try {
-            const paramsObj = Object.assign({}, params);
-            paramsObj.api_token = this.apiToken;
-
-            return await this.PipedriveService.GetAllPersons(paramsObj);
+            return await this.PipedriveService.GetAllPersons({ ...params, api_token: this.apiToken });
         } catch (error) {
             throw error;
         }
     }
 
-    public async GetAllUsers(params?: { api_token: string }) {
+    public async GetAllUsers() {
         try {
-            const paramsObj = Object.assign({}, params);
-            paramsObj.api_token = this.apiToken;
-
-            return await this.PipedriveService.GetAllUsers(paramsObj);
+            return await this.PipedriveService.GetAllUsers({ api_token: this.apiToken });
         } catch (error) {
             throw error;
         }

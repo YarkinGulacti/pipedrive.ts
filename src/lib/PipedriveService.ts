@@ -35,11 +35,7 @@ export class PipedriveService {
         return `?${queryParameters.join("&")}`;
     }
 
-    private async buildRequest<T>(
-        baseUrl: string,
-        endpoint: PipedriveEndpoints,
-        params: any
-    ) {
+    private async buildRequest<T>(baseUrl: string, endpoint: PipedriveEndpoints, params: any) {
         const query = this.buildQueryParameters(params);
         const url = `${baseUrl}${endpoint}${query}`;
         const response = await axios.get(url);
@@ -47,98 +43,80 @@ export class PipedriveService {
         return response.data as T;
     }
 
-    public async GetAllDeals(params?: GetAllDealsParams) {
+    public async GetAllDeals(params?: GetAllDealsParams & { api_token: string }) {
         try {
-            return await this.buildRequest<GetAllDealsResponse>(
-                this.baseUrl,
-                PipedriveEndpoints.GetAllDeals,
-                params
-            );
+            return await this.buildRequest<GetAllDealsResponse>(this.baseUrl, PipedriveEndpoints.GetAllDeals, params);
         } catch (error) {
             throw error;
         }
     }
 
-    public async GetAllDealFields(params?: GetAllDealFieldsParams) {
+    public async GetAllDealFields(params?: GetAllDealFieldsParams & { api_token: string }) {
         try {
             return await this.buildRequest<GetAllDealFieldsResponse>(
                 this.baseUrl,
                 PipedriveEndpoints.GetAllDealFields,
-                params
+                params,
             );
         } catch (error) {
             throw error;
         }
     }
 
-    public async GetAllOrganizations(params?: GetAllOrganizationsParams) {
+    public async GetAllOrganizations(params?: GetAllOrganizationsParams & { api_token: string }) {
         try {
             return await this.buildRequest<GetAllOrganizationsResponse>(
                 this.baseUrl,
                 PipedriveEndpoints.GetAllOrganizations,
-                params
+                params,
             );
         } catch (error) {
             throw error;
         }
     }
 
-    public async GetAllStages(params?: GetAllStagesParams) {
+    public async GetAllStages(params?: GetAllStagesParams & { api_token: string }) {
         try {
-            return await this.buildRequest<GetAllStagesResponse>(
-                this.baseUrl,
-                PipedriveEndpoints.GetAllStages,
-                params
-            );
+            return await this.buildRequest<GetAllStagesResponse>(this.baseUrl, PipedriveEndpoints.GetAllStages, params);
         } catch (error) {
             throw error;
         }
     }
 
-    public async GetAllOrganizationFields(
-        params?: GetAllOrganizationFieldsParams
-    ) {
+    public async GetAllOrganizationFields(params?: GetAllOrganizationFieldsParams & { api_token: string }) {
         try {
             return await this.buildRequest<GetAllOrganizationFieldsResponse>(
                 this.baseUrl,
                 PipedriveEndpoints.GetAllOrganizationFields,
-                params
+                params,
             );
         } catch (error) {
             throw error;
         }
     }
 
-    public async GetAllNotes(params?: GetAllNotesParams) {
+    public async GetAllNotes(params?: GetAllNotesParams & { api_token: string }) {
         try {
-            return await this.buildRequest<GetAllNotesResponse>(
-                this.baseUrl,
-                PipedriveEndpoints.GetAllNotes,
-                params
-            );
+            return await this.buildRequest<GetAllNotesResponse>(this.baseUrl, PipedriveEndpoints.GetAllNotes, params);
         } catch (error) {
             throw error;
         }
     }
 
-    public async GetAllFiles(params?: GetAllFilesParams) {
+    public async GetAllFiles(params?: GetAllFilesParams & { api_token: string }) {
         try {
-            return await this.buildRequest<GetAllFilesResponse>(
-                this.baseUrl,
-                PipedriveEndpoints.GetAllFiles,
-                params
-            );
+            return await this.buildRequest<GetAllFilesResponse>(this.baseUrl, PipedriveEndpoints.GetAllFiles, params);
         } catch (error) {
             throw error;
         }
     }
 
-    public async GetAllPersons(params?: GetAllPersonsParams) {
+    public async GetAllPersons(params?: GetAllPersonsParams & { api_token: string }) {
         try {
             return await this.buildRequest<GetAllPersonsResponse>(
                 this.baseUrl,
                 PipedriveEndpoints.GetAllPersons,
-                params
+                params,
             );
         } catch (error) {
             throw error;
@@ -147,11 +125,7 @@ export class PipedriveService {
 
     public async GetAllUsers(params?: { api_token: string }) {
         try {
-            return await this.buildRequest<GetAllUsersResponse>(
-                this.baseUrl,
-                PipedriveEndpoints.GetAllUsers,
-                params
-            );
+            return await this.buildRequest<GetAllUsersResponse>(this.baseUrl, PipedriveEndpoints.GetAllUsers, params);
         } catch (error) {
             throw error;
         }
