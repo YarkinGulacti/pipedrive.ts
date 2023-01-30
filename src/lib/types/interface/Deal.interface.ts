@@ -188,5 +188,8 @@ export interface Deal {
         org_hidden?: boolean;
         /** @description If the person that is associated with the deal is hidden or not */
         person_hidden?: boolean;
+        renewal_type?: string;
+        group_id?: number;
+        group_name?: string;
     };
 }
