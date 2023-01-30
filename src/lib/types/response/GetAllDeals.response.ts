@@ -4,12 +4,14 @@ export interface GetAllDealsResponse {
     success?: boolean;
     data?: Array<Deal>;
     additional_data?: {
-        /** @description Pagination start */
-        start?: number;
-        /** @description Items shown per page */
-        limit?: number;
-        /** @description If there are more list items in the collection than displayed or not */
-        more_items_in_collection?: boolean;
+        pagination?: {
+            /** @description Pagination start */
+            start?: number;
+            /** @description Items shown per page */
+            limit?: number;
+            /** @description If there are more list items in the collection than displayed or not */
+            more_items_in_collection?: boolean;
+        };
     };
     related_objects?: {
         /** @description The user who is associated with the deal */
