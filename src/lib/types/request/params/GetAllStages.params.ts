@@ -3,6 +3,4 @@ export interface GetAllStagesParams {
     query?: {
         pipeline_id?: number;
     };
-
-    api_token: string;
 }

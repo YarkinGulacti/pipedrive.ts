@@ -2,5 +2,4 @@
 export interface GetAllOrganizationFieldsParams {
     start?: number;
     limit?: number;
-    api_token: string;
 }

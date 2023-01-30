@@ -6,5 +6,4 @@ export interface GetAllOrganizationsParams {
     start?: number;
     limit?: number;
     sort?: string;
-    api_token: string;
 }

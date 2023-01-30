@@ -13,5 +13,4 @@ export interface GetAllNotesParams {
     pinned_to_deal_flag?: 0 | 1;
     pinned_to_organization_flag?: 0 | 1;
     pinned_to_person_flag?: 0 | 1;
-    api_token: string;
 }
