@@ -1,3 +1,2 @@
-import { PipedriveClient } from "./core/PipedriveClient";
-
-export { PipedriveClient };
+export { PipedriveClient } from "./core/PipedriveClient";
+export * from "./lib";
