@@ -1,3 +1,5 @@
+import { DealStatus } from "../enum/DealStatus.enum";
+
 export interface CreatorUserId {
     /** @description The ID of the deal creator */
     id?: number;
@@ -104,7 +106,7 @@ export interface Deal {
     /** @description Whether the deal is deleted or not */
     deleted?: boolean;
     /** @description The status of the deal */
-    status?: string;
+    status?: DealStatus;
     /** @description The success probability percentage of the deal */
     probability?: number | null;
     /** @description The date of the next activity associated with the deal */
