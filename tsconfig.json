@@ -6,10 +6,8 @@
         "outDir": "./build",
         "noImplicitAny": true,
         "declaration": true,
-        "strict": true,
-        "allowSyntheticDefaultImports": true,
-        "skipLibCheck": true
+        "strict": true
     },
     "include": ["src/**/*"],
-    "exclude": ["node_modules", "src/**/*spec*", "src/**/*test*"]
+    "exclude": ["node_modules"]
 }
