@@ -75,7 +75,7 @@ export interface DealField {
     /**
       @description Whether or not the field is mandatory
      */
-    mandatory_flag?: boolean;
+    mandatory_flag?: boolean | Record<string, never>;
     /**
       @description The options of the field. When there are no options, `null` is returned.
      */
@@ -95,4 +95,6 @@ export interface DealField {
     /**
       @description The additional data of the list
      */
+
+    projects_detail_visible_flag?: boolean;
 }
