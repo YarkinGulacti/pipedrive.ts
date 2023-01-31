@@ -40,6 +40,7 @@ export interface DealField {
       @description The edit flag of the field
      */
     edit_flag?: boolean;
+    json_custom_flag?: boolean;
     /**
       @description Not used
      */
