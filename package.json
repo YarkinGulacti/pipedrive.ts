@@ -1,6 +1,6 @@
 {
     "name": "pipedrive.ts",
-    "version": "0.0.9-beta",
+    "version": "0.0.10-beta",
     "description": "A Typescript Pipedrive package.",
     "main": "build/index.js",
     "types": "build/index.d.ts",
@@ -44,10 +44,6 @@
         ".": {
             "types": "./build/index.d.ts",
             "default": "./build/index.js"
-        },
-        "./core": {
-            "types": "./build/types/index.d.ts",
-            "default": "./build/types/index.js"
         },
         "./package.json": "./package.json"
     }
