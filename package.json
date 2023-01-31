@@ -1,6 +1,6 @@
 {
     "name": "pipedrive.ts",
-    "version": "0.0.8-beta",
+    "version": "0.0.9-beta",
     "description": "A Typescript Pipedrive package.",
     "main": "build/index.js",
     "types": "build/index.d.ts",
