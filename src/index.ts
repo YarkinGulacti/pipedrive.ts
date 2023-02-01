@@ -1,2 +1,2 @@
 export { PipedriveClient } from "./core/PipedriveClient";
-export * from "./types";
+export * from "./lib/types";
