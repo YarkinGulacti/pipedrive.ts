@@ -1,7 +1,7 @@
 export enum DealStatus {
     Open = "open",
     Won = "won",
-    Lost = "Lost",
+    Lost = "lost",
     Deleted = "deleted",
     AllNotDeleted = "all_not_deleted",
 }
